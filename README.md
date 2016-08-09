@@ -8,5 +8,7 @@ Other useful links:
 
 http://www.ruby-doc.org/core/
 
+NOTE: the version I have installe: http://ruby-doc.org/core-2.2.5/
+
 http://www.ruby-doc.org/stdlib/
 
