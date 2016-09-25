@@ -11,7 +11,7 @@ POLYMORPHISM.
 # NOTE: when you run a program, Ruby creates a "main" object
 
 puts self         # <-- main
-puts self.class   # <-- Object
+puts self.class   # <-- Object - the ultimate ancestor of all other classes
 
 # OOD - would it be less repetitive to have an Animal class with
 # two descendent classes, Cat and Dog?
@@ -40,7 +40,7 @@ class Cat < Animal
   end
 end
 
-# THERE ARE BETTER WAYS STILL
+# (THERE ARE BETTER WAYS STILL...)
 
 mydog = Dog.new
 mydog.set_name( 'Lucy' )
@@ -49,6 +49,8 @@ puts mydog.get_name
 mycat = Cat.new
 mycat.set_name( 'Elvis' )
 puts mycat.get_name
+
+
 
 
 
@@ -102,91 +104,90 @@ puts "Inspecting 1st treasure: #{t1.inspect}"
 
 
 
+
 # Another stab at Animal:
 
 
 class Animal
 
-  def initialize( words )
+  def initialize( words='...' )
     @words = words
   end
 
   def set_name( aName )
-    @aName    = aName
+    @name    = aName
   end
 
   def get_name
-    return @aName
+    return @name
   end
 
   def talk
-  return @words
+    return @words
   end
+
 end
 
+
 class Dog < Animal
+
   def initialize( word='woof' )
     @words      = word
   end
+
 end
 
+
 class Cat < Animal
+
   def initialize( word='meow' )
     @words      = word
   end
+
 end
+
 
 x = Dog.new
 x.set_name('Mojo')
 puts "#{x.get_name} says, '#{x.talk}'"
 
+a = Animal.new
+puts("Inspecting Animal: #{a.inspect}")
+puts("Inspecting Dog   : #{x.inspect}")
+b = Cat.new
+puts("Inspecting Cat   : #{b.inspect}")
+
+p Cat.new.get_name          # <-- valid method, but a 'nil' value
+# p Cat.new.get_moar_food     # <-- NoMethodError
+ 
+
+
+=begin
+NOTE: GARBAGE COLLECTION - in additino to CONSTRUCTORS, some languages
+also require DESTRUCTORS (like del() in Python). Ruby has a built-in "garbage
+collector" which "destroys" objects and reclaims the memory they used when
+they are no longer referenced by by the program.
+=end 
 
 
 
+# INSPECTING OBJECTS
+
+puts t1.inspect
+
+=begin
+The .inspect method is defined for all Ruby objects. It returns a string:
+#<Class name: #internal#id#code#for#the#specific#instance# @object_variable_name="object variable value">
+=end
 
 
+a = "hello"
+b = 123
+c = Treasure.new( 'ring', 'gold thing' )
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+p( a )
+p( b )
+p( c )
 
 
 
