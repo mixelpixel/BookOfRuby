@@ -1,0 +1,8 @@
+# http://stackoverflow.com/questions/14700835/gitignore-a-folder-content  
+# http://stackoverflow.com/questions/8865848/comments-in-gitignore  
+
+*~  
+*swp  
+*.pdf  
+*.zip  
+SapphireSteelPrograms/*  
